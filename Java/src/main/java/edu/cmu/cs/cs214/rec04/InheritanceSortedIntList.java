@@ -17,12 +17,30 @@ public class InheritanceSortedIntList extends SortedIntList {
     public InheritanceSortedIntList() {
     }
 
+    /**
+     * Adds the specified element to the list in sorted order.
+     * Increments the total number of added elements.
+     * 
+     * Overrides {@link SortedIntList#add(int)}.
+     * 
+     * @param element an integer to be added to the list
+     * @return true if the list changed as a result of the call
+     */
     @Override
     public boolean add(int element) {
         totalAdded++; 
         return super.add(element);
     }
 
+    /**
+     * Adds all elements from the specified IntegerList to this list.
+     * Increments the total number of added elements for each element added.
+     * 
+     * Overrides {@link SortedIntList#addAll(IntegerList)}.
+     *
+     * @param elements IntegerList containing elements to be added to the list
+     * @return true if this list changed as a result of the call
+     */
     @Override
     public boolean addAll(IntegerList elements) {
         for (int i = 0; i < elements.size(); i++) {
@@ -31,6 +49,11 @@ public class InheritanceSortedIntList extends SortedIntList {
         return true; 
     }
 
+    /**
+     * Returns the total number of elements added to this list since it was made.
+     *
+     * @return the total number of elements added to this list
+     */
     public int getTotalAdded() {
         return totalAdded;
     }
